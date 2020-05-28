@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NetworkConnectStatusDemo"
         mc:Ignorable="d"
-        Title="网络连接状态判断" Height="450" Width="800" x:Name="TheMainWindow">
+        Title="网络连接状态判断" Height="450" Width="800" 
+        x:Name="TheMainWindow">
     <Window.Resources>
         <Style TargetType="CheckBox">
             <Setter Property="Margin" Value="0 10 0 0 "/>
