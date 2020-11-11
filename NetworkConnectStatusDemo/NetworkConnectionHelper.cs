@@ -49,12 +49,12 @@ namespace Cvte.EasiPreAssistant.Business
 
         #region WebClient
 
-    public static bool IsWebClientConnected()
+    public static bool IsWebClientConnected(string text)
     {
         try
         {
             using (var client = new WebClient())
-            using (var stream = client.OpenRead("http://www.qq.com"))
+            using (var stream = client.OpenRead(string.IsNullOrWhiteSpace(text)?"http://www.qq.com":text))
             {
                 return true;
             }
@@ -69,11 +69,11 @@ namespace Cvte.EasiPreAssistant.Business
 
         #region IPHost
 
-    public static bool IsIPHostConnected()
+    public static bool IsIPHostConnected(string text)
     {
         try
         {
-            System.Net.IPHostEntry i = System.Net.Dns.GetHostEntry("www.google.com");
+            System.Net.IPHostEntry i = System.Net.Dns.GetHostEntry(string.IsNullOrWhiteSpace(text)?"www.google.com":text);
             return true;
         }
         catch
@@ -87,13 +87,13 @@ namespace Cvte.EasiPreAssistant.Business
 
         #region Ping
 
-    public static async Task<bool> IsPingSuccess()
+    public static async Task<bool> IsPingSuccess(string text)
     {
         try
         {
             using (Ping myPing = new Ping())
             {
-                var result = await myPing.SendPingAsync("google.com", 3000 /*3 secs timeout*/, new byte[32], new PingOptions(64, true));
+                var result = await myPing.SendPingAsync(string.IsNullOrWhiteSpace(text)?"google.com":text, 3000 /*3 secs timeout*/, new byte[32], new PingOptions(64, true));
                 return result.Status == IPStatus.Success;
             }
         }

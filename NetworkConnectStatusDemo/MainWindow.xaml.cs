@@ -156,7 +156,7 @@ namespace NetworkConnectStatusDemo
         {
             var stopwatch = new Stopwatch();
             stopwatch.Start();
-            IsConnectedByWebClient = NetworkConnectionHelper.IsWebClientConnected();
+            IsConnectedByWebClient = NetworkConnectionHelper.IsWebClientConnected(HostTextBox.Text);
             IsConnectedByWebClientTime = stopwatch.ElapsedMilliseconds;
             stopwatch.Stop();
             await Task.Delay(TimeSpan.FromSeconds(2));
@@ -164,14 +164,14 @@ namespace NetworkConnectStatusDemo
             //单独定时器，防止网络测试被获取干扰
             stopwatch = new Stopwatch();
             stopwatch.Start();
-            IsIpHostConnected = NetworkConnectionHelper.IsIPHostConnected();
+            IsIpHostConnected = NetworkConnectionHelper.IsIPHostConnected(HostTextBox.Text);
             IsIpHostConnectedTime = stopwatch.ElapsedMilliseconds;
             stopwatch.Stop();
             await Task.Delay(TimeSpan.FromSeconds(2));
 
             stopwatch = new Stopwatch();
             stopwatch.Start();
-            IsPingSuccess = await NetworkConnectionHelper.IsPingSuccess();
+            IsPingSuccess = await NetworkConnectionHelper.IsPingSuccess(HostTextBox.Text);
             IsPingSuccessTime = stopwatch.ElapsedMilliseconds;
             stopwatch.Stop();
             await Task.Delay(TimeSpan.FromSeconds(2));

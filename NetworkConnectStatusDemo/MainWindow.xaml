@@ -62,7 +62,9 @@
     </Window.Resources>
     <Grid>
         <StackPanel>
-            <Button x:Name="RefreshButton" Content="刷新" HorizontalAlignment="Center" Height="26" Width="100" Margin="20" Click="RefreshButton_OnClick"></Button>
+            <TextBox x:Name="HostTextBox" Text="http://www.qq.com" Width="300" Height="30" Padding="4" VerticalContentAlignment="Center" 
+                     HorizontalAlignment="Center" FontSize="14"></TextBox>
+            <Button x:Name="RefreshButton" Content="获取连接状态" HorizontalAlignment="Center" Height="26" Width="100" Margin="20" Click="RefreshButton_OnClick"></Button>
             <StackPanel Orientation="Vertical">
                 <CheckBox Content="网络连接(WebClient)" IsChecked="{Binding ElementName=TheMainWindow,Path=IsConnectedByWebClient}"
                           local:ControlHelper.Content="{Binding ElementName=TheMainWindow,Path=IsConnectedByWebClientTime}"/>
